@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='edit.css') }}">
+</head>
+<body>
+    <div class="edit-container">
+   <h2 classs="edit-title">Edit Application</h2>
+   <div class="edit-content"></div>
+    <form method="POST" action="/update/{{ app[0] }}">
+        <label>Company</label>
+        <input name="company" value="{{ app[2] }}">
+
+        <label>Role</label>
+        <input name="role" value="{{ app[3] }}">
+
+        <label>Status</label>
+        <input name="status" value="{{ app[4] }}">
+
+        <label>Applied Date</label>
+        <input name="applied_date" value="{{ app[5] }}">
+        <div class="action">
+
+        <button type="submit" class="edit-btn">update</button>
+    </div>
+
+
+    </form>
+</div>
+<br>
+</div>
+    <div class="btn">
+        <a href="/dashboard">Back to dashboard</a>
+    </div>
+</body>
+</html>

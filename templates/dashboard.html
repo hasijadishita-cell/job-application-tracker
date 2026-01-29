@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+<div class="dashboard-header">
+    <h1 class="dashboard-title">Dashboard</h1>
+    <h2 class="dashboard-subtitle">Welcome, <strong>{{ name }}
+    </strong></h2>
+    <div class="dashboard-actions">
+        <a href="/add-application" class="dashboard-btn">Add Application</a>
+        <a href="/logout" class="dashboard-btn">Logout</a>
+
+    </div>
+    <form method="GET" class="filter-bar">
+        <select name="month">
+            <option value="all">All Months</option>
+            <option value="2026-01">January</option>
+            <option value="2026-02">February</option>
+            <option value="2026-03">March</option>
+            <option value="2026-04">April</option>
+            <option value="2026-05">May</option>
+            <option value="2026-06">June</option>
+            <option value="2026-07">July</option>
+            <option value="2026-08">August</option>
+            <option value="2026-09">September</option>
+            <option value="2026-10">October</option>
+            <option value="2026-11">November</option>
+            <option value="2026-12">December</option>
+        </select>
+        <select name="status">
+            <option value="all">All</option>
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+            
+        </select>
+        <button type="submit">Filter</button>
+</div>
+<div class="dashboard-content">
+    <h2>Applications</h2>
+
+    {% if application %}
+    <table border="1" width="100%">
+       <thead>
+        <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Action</th> 
+        </tr>
+       </thead>
+        {% for app in application %}
+       <tbody>
+        <tr>
+            <td>{{ app[2] }}</td>
+            <td>{{ app[3] }}</td>
+            <td>{{ app[4] }}</td>
+            <td>{{ app[5] }}</td>
+            <td>
+                <form action="/delete-application/{{ app[0] }}" method="post" style="display:inline">
+                    <button type="submit" class="delete-btn">Delete</button>
+                </form>
+                
+                <form action="/edit/{{ app[0] }}" method="get" style="display:inline">
+                    <button type="submit" class="edit-btn">Edit</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+       </tbody>
+    </table>
+    {% else %}
+    <p class="empty">No applications yet.</p>
+    {% endif %}
+    <br>
+    
+</div>
+    </div>
+
+</body>
+</html>

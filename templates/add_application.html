@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <div class="auth-container">
+        <h2> Add Job Application</h2>
+
+        <form method="POST">
+            <label>Company</label>
+            <input type="text" name="company" required>
+
+            <label>Role</label>
+            <input type="text" name="role" required>
+
+            <label>Status</label>
+            <input type="text" name="status" placeholder="Applied/ Interview/Offer/Rejected" required>
+
+            <label>Applied Date</label>
+            <input type="date" name="applied_date" required>
+
+            <button type="submit">Add</button>
+        </form>
+        <br>
+        <div class="btn">
+            <a href="/dashboard">Back to Dashboard</a>
+        </div>
+        
+    </div>
+</body>
+</html>
