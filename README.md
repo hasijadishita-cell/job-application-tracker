@@ -92,5 +92,5 @@ http://127.0.0.1:5000
 ## Author
 
 Dishita Hasija
-Bachelor of Engineering (Software Engineering)(Honors)
+Bachelor of Engineering (Software Engineering)(Honours)
 RMIT University
