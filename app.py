@@ -1,9 +1,10 @@
 from db import *
 from flask import *
 from auth import *
+import os
 
 app=Flask(__name__)
-app.secret_key="dev-secret-key"
+app.secret_key=os.environ.get("SECRET_KEY")
 
 @app.route("/")
 def home():

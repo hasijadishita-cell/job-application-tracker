@@ -93,9 +93,12 @@ SELECT * FROM applications WHERE user_id=? AND status=? ORDER BY applied_date DE
 SELECT * FROM applications WHERE user_id=? ORDER BY applied_date DESC
                      """,(user_id,))
       return cur.fetchall()
+    
+
+    
    
    
       
-      
+    
 
 
